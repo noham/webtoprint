@@ -22,7 +22,8 @@ router.get('/', async (req, res)=>{
         const drink = await Drink.find()
         res.json(drink)
     }catch(err){
-        res.status(500).json({message: err.message})
+        res.status(statusCode >= 100 && statusCode < 600 ? err.code : 500)
+        // res.status(500).json({message: err.message})
     }
 })
 // getting one
