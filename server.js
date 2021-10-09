@@ -18,9 +18,6 @@ app.use(cors())
 app.use(express.json())
 
 // routes
-const projectsRouter = require('./routes/projects')
-app.use('/projects', projectsRouter)
-
 const drinksRouter = require('./routes/drinks')
 app.use('/drinks', drinksRouter)
 
