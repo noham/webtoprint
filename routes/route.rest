@@ -1,0 +1,29 @@
+GET http://localhost:3000/projects
+
+###
+
+GET http://localhost:3000/projects/60e08b85d7b2633f9407d53d
+
+###
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+    "projectTitle" : "Mothers Day",
+    "clientName" : "Allerton Manor",
+    "teamMember" : "Dave"
+}
+
+
+###
+
+DELETE http://localhost:3000/projects/60e08b85d7b2633f9407d53d
+
+###
+
+PATCH http://localhost:3000/projects/60e08b85d7b2633f9407d53d
+Content-Type: application/json
+
+{
+"projectTitle" : "Mothers Day"
+}
