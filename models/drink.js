@@ -34,27 +34,6 @@ const drinkSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    priceOne: {
-        type: Number,
-        required: true
-    },
-    priceTwo: {
-        type: Number,
-        required: true
-    },
-    priceThree: {
-        type: Number,
-        required: true
-    },
-    priceFour: {
-        type: Number,
-        required: true
-    },
-    priceFive: {
-        type: Number,
-        required: true
-    },
-    selectedPubs: [String],
     menuCatType: {
         type: String,
         required: true
