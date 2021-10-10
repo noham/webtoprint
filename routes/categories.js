@@ -32,7 +32,8 @@ router.get('/:id', getCategory, (req, res)=>{
 // creating one
 router.post('/', async (req, res)=>{
     const category = new Category({
-        categoryName: req.body.categoryName
+        categoryName: req.body.categoryName,
+        parentCategoryName: req.body.parentCategoryName
     })
     try {
         const newCategory = await category.save()
@@ -45,6 +46,9 @@ router.post('/', async (req, res)=>{
 router.patch('/:id', getCategory, async (req, res)=>{
     if(req.body.categoryName != null){
         res.category.categoryName = req.body.categoryName
+    } 
+    if(req.body.parentCategoryName != null){
+        res.category.parentCategoryName = req.body.parentCategoryName
     } 
     try {
         const updatedCategory = await res.category.save()
