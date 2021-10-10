@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const { stringify } = require('querystring')
 
 const savedData = new mongoose.Schema({
-    listItemId:[String],
+    listItemId:{
+        type: String,
+        required: true
+    },
     listTextContent: {
         type: String,
         required: false
