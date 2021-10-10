@@ -6,6 +6,10 @@ const savedData = new mongoose.Schema({
         type: String,
         required: true
     },
+    listItemType:{
+        type: String,
+        required: true
+    },
     listTextContent: {
         type: String,
         required: false

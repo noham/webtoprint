@@ -44,11 +44,9 @@ router.post('/', async (req, res)=>{
 })
 // updating one
 router.patch('/:id', getPub, async (req, res)=>{
-    if(req.body.pubName != null){
-        res.pub.pubName = req.body.pubName
-    } 
+
     if(req.body.savedDrinksList != null){
-        res.pub.savedDrinksList = req.body.savedDrinksList
+        req.body.savedDrinksList.push(res.pub.savedDrinksList)
     } 
     try {
         const updatedPub = await res.pub.save()
