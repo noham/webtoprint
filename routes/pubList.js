@@ -44,9 +44,11 @@ router.post('/', async (req, res)=>{
 })
 // updating one
 router.patch('/:id', getPub, async (req, res)=>{
-
+    if(req.body.pubName != null){
+        res.pub.pubName = req.body.pubName
+    } 
     if(req.body.savedDrinksList != null){
-        res.pub.savedDrinksList += req.body.savedDrinksList
+        res.pub.savedDrinksList = req.body.savedDrinksList
     } 
     try {
         const updatedPub = await res.pub.save()
@@ -55,6 +57,8 @@ router.patch('/:id', getPub, async (req, res)=>{
         res.status(400).json({message: err.message})
     }
 })
+
+
 // deleting one
 router.delete('/:id', getPub, async (req, res)=>{
     try {

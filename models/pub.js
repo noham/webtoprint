@@ -19,7 +19,7 @@ const savedData = new mongoose.Schema({
 const pubSchema = new mongoose.Schema({
     pubName: {
         type: String,
-        required: true
+        required: false
     },
     savedDrinksList: [savedData],
     dateCreated: {
