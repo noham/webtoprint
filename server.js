@@ -21,6 +21,9 @@ app.use(express.json())
 const drinksRouter = require('./routes/drinks')
 app.use('/drinks', drinksRouter)
 
+const categoryRouter = require('./routes/drinks')
+app.use('/categories', categoryRouter)
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("Listening on port " + PORT + "...");
