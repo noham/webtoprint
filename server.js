@@ -24,6 +24,9 @@ app.use('/drinks', drinksRouter)
 const categoryRouter = require('./routes/categories')
 app.use('/categories', categoryRouter)
 
+const pubListRouter = require('./routes/pubList')
+app.use('/pubList', pubListRouter)
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("Listening on port " + PORT + "...");
