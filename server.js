@@ -21,7 +21,7 @@ app.use(express.json())
 const drinksRouter = require('./routes/drinks')
 app.use('/drinks', drinksRouter)
 
-const categoryRouter = require('./routes/drinks')
+const categoryRouter = require('./routes/categories')
 app.use('/categories', categoryRouter)
 
 const PORT = process.env.PORT || 5000;
