@@ -24,8 +24,8 @@ app.use('/drinks', drinksRouter)
 const categoryRouter = require('./routes/categories')
 app.use('/categories', categoryRouter)
 
-const categoryRouter = require('./routes/parentCategories')
-app.use('/parentCategories', categoryRouter)
+const parentCategoryRouter = require('./routes/parentCategories')
+app.use('/parentCategories', parentCategoryRouter)
 
 const pubListRouter = require('./routes/pubList')
 app.use('/pubList', pubListRouter)
