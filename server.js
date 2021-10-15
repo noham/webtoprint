@@ -18,6 +18,9 @@ app.use(cors())
 app.use(express.json())
 
 // routes
+const measurementsRouter = require('./routes/measurements')
+app.use('/measurements', measurementsRouter)
+
 const drinksRouter = require('./routes/drinks')
 app.use('/drinks', drinksRouter)
 
