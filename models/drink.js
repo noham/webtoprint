@@ -24,15 +24,15 @@ const drinkSchema = new mongoose.Schema({
     },
     Description: {
         type: String,
-        required: true
+        required: false
     },
     provenance: {
         type: String,
-        required: true
+        required: false
     },
     vintage: {
         type: String,
-        required: true
+        required: false
     },
     menuCatType: {
         type: String,
