@@ -13,6 +13,10 @@ const savedData = new mongoose.Schema({
     listTextContent: {
         type: String,
         required: false
+    },
+    cssTextStyling: {
+        type: String,
+        required: false
     }
 })
 
