@@ -20,12 +20,20 @@ const savedData = new mongoose.Schema({
     }
 })
 
+const pageSchema = new mongoose.Schema({
+    pageNum: {
+        type: String,
+        required: true
+    },
+    pageContents: [savedData]
+})
+
 const pubSchema = new mongoose.Schema({
     pubName: {
         type: String,
         required: false
     },
-    savedDrinksList: [savedData],
+    savedDrinksList: [pageSchema],
     dateCreated: {
         type: Date,
         required: true,
