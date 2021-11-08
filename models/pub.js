@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 const { stringify } = require('querystring')
 
+const measurementsSchema = new mongoose.Schema({
+    measurementID: {
+        type: String,
+        required: false
+    }
+})
 const savedData = new mongoose.Schema({
     listItemId:{
         type: String,
@@ -17,7 +23,8 @@ const savedData = new mongoose.Schema({
     cssTextStyling: {
         type: String,
         required: false
-    }
+    },
+    measurements: [measurementsSchema]
 })
 
 const pageSchema = new mongoose.Schema({
