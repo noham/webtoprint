@@ -40,10 +40,6 @@ const pubSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    pageSize:{
-        type: String,
-        required: true
-    },
     savedDrinksList: [pageSchema],
     savedDrinksListA4: [pageSchema],
     dateCreated: {
