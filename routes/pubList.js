@@ -34,7 +34,8 @@ router.post('/', async (req, res)=>{
     const pub = new Pub({
         pubName: req.body.pubName,
         pageSize: req.body.pageSize,
-        savedDrinksList: req.body.savedDrinksList
+        savedDrinksList: req.body.savedDrinksList,
+        savedDrinksListA4: req.body.savedDrinksListA4
     })
     try {
         const newPub = await pub.save()
@@ -53,6 +54,9 @@ router.patch('/:id', getPub, async (req, res)=>{
     } 
     if(req.body.savedDrinksList != null){
         res.pub.savedDrinksList = req.body.savedDrinksList
+    } 
+    if(req.body.savedDrinksListA4 != null){
+        res.pub.savedDrinksListA4 = req.body.savedDrinksListA4
     } 
     try {
         const updatedPub = await res.pub.save()
