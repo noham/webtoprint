@@ -33,6 +33,7 @@ router.get('/:id', getPub, (req, res)=>{
 router.post('/', async (req, res)=>{
     const pub = new Pub({
         pubName: req.body.pubName,
+        pageSize: req.body.pageSize,
         savedDrinksList: req.body.savedDrinksList
     })
     try {
@@ -46,6 +47,9 @@ router.post('/', async (req, res)=>{
 router.patch('/:id', getPub, async (req, res)=>{
     if(req.body.pubName != null){
         res.pub.pubName = req.body.pubName
+    } 
+    if(req.body.pageSize != null){
+        res.pub.pageSize = req.body.pageSize
     } 
     if(req.body.savedDrinksList != null){
         res.pub.savedDrinksList = req.body.savedDrinksList
