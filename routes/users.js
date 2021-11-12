@@ -2,11 +2,45 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 
+
+
+
 // getting all
 router.get('/', async (req, res)=>{
     try{
-        const user = await User.find()
-        res.json(user)
+        // const user = await User.find()
+        // res.json(user)
+
+        let username = req.body.username
+        let password = req.body.password
+
+        module.exports = {
+            loginUser: function(username, password, callback) {
+              UserModel.findOne({username: username}).exec(function(error, user) {
+                if (error) {
+                  callback({error: true})
+                } else if (!user) {
+                  callback({error: true})
+                } else {
+                  user.comparePassword(password, function(matchError, isMatch) {
+                    if (matchError) {
+                      callback({error: true})
+                    } else if (!isMatch) {
+                      callback({error: true})
+                    } else {
+                      callback({success: true})
+                    }
+                  })
+                }
+              })
+            }
+          }
+
+
+
+
+
+
     }catch(err){
         res.status(500).json({message: err.message})
     }
