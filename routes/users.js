@@ -34,7 +34,7 @@ const encrypt = (password)=>{
 router.post('/', async (req, res)=>{
     const user = new User({
         username: req.body.username,
-        password: encrypt(req.body.password)
+        password: req.body.password
     })
     try {
         const newUser = await user.save()
