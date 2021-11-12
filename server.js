@@ -39,6 +39,9 @@ app.use('/parentCategories', parentCategoryRouter)
 const pubListRouter = require('./routes/pubList')
 app.use('/pubList', pubListRouter)
 
+const loginRouter = require('./routes/users')
+app.use('/users', loginRouter)
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("Listening on port " + PORT + "...");
