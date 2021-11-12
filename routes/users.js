@@ -12,8 +12,8 @@ router.get('/', async (req, res)=>{
         // res.json(user)
 
 
-        module.exports = {
-            loginUser: function(username, password, callback) {
+        // module.exports = {
+            // loginUser: function(username, password, callback) {
               User.findOne({username: username}).exec(function(error, user) {
                 if (error) {
                   callback({error: true})
@@ -31,8 +31,8 @@ router.get('/', async (req, res)=>{
                   })
                 }
               })
-            }
-          }
+            // }
+        //   }
 
 
 
