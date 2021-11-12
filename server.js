@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-// const basicAuth = require('express-basic-auth')
+const basicAuth = require('express-basic-auth')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -18,10 +18,10 @@ db.once('open', ()=> console.log('connected to db'))
 
 app.use(cors())
 app.use(express.json())
-// app.use(basicAuth({
-//   users: { 'username' : process.env.PASSWORD }
-// }
-// )) 
+app.use(basicAuth({
+  users: { 'username' : process.env.PASSWORD }
+}
+)) 
 
 // routes
 const measurementsRouter = require('./routes/measurements')
