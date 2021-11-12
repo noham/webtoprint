@@ -14,13 +14,13 @@ router.get('/', async (req, res)=>{
 
         // module.exports = {
             // loginUser: function(username, password, callback) {
-              User.findOne({username: username}).exec(function(error, user) {
+              User.findOne({username: req.body.username}).exec(function(error, user) {
                 if (error) {
                   callback({error: true})
                 } else if (!user) {
                   callback({error: true})
                 } else {
-                  user.comparePassword(password, function(matchError, isMatch) {
+                  user.comparePassword(req.body.password, function(matchError, isMatch) {
                     if (matchError) {
                       callback({error: true})
                     } else if (!isMatch) {
