@@ -10,15 +10,15 @@ router.get('/', async (req, res)=>{
     
         User.findOne({username: username}).exec(function(error, user) {
             if (error) {
-                res.json({username: error})
+                res.json({user: false})
             } else if (!user) {
-                res.json({username: error})
+                res.json({user: false})
             } else {
                 user.comparePassword(password, function(matchError, isMatch) {
                     if (matchError) {
-                        res.json({password: error})
+                        res.json({user: false})
                     } else if (!isMatch) {
-                        res.json({password: error})
+                        res.json({user: false})
                     } else {
                         res.json({user: true})
                     }
