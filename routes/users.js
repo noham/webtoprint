@@ -5,9 +5,9 @@ const User = require('../models/user')
 
 router.get('/', async (req, res)=>{
     try{
-        let username = req.body.username
-        let password = req.body.password
-    
+        let username = req.query.user
+        let password = req.query.pass
+
         User.findOne({username: username}).exec(function(error, user) {
             if (error) {
                 res.json({user: false})
