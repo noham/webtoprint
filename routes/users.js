@@ -3,45 +3,32 @@ const router = express.Router()
 const User = require('../models/user')
 
 
-
-
-// getting all
 router.get('/', async (req, res)=>{
     try{
-        // const user = await User.find()
-        // res.json(user)
-
-
-        // module.exports = {
-            // loginUser: function(username, password, callback) {
-              User.findOne({username: req.body.username}).exec(function(error, user) {
-                if (error) {
-                  callback({error: true})
-                } else if (!user) {
-                  callback({error: true})
-                } else {
-                  user.comparePassword(req.body.password, function(matchError, isMatch) {
+        let username = req.body.username
+        let password = req.body.password
+    
+        User.findOne({username: username}).exec(function(error, user) {
+            if (error) {
+                res.json({username: error})
+            } else if (!user) {
+                res.json({username: error})
+            } else {
+                user.comparePassword(password, function(matchError, isMatch) {
                     if (matchError) {
-                      callback({error: true})
+                        res.json({password: error})
                     } else if (!isMatch) {
-                      callback({error: true})
+                        res.json({password: error})
                     } else {
-                      callback({success: true})
+                        res.json({user: true})
                     }
-                  })
-                }
-              })
-            // }
-        //   }
-
-
-
-
-
-
+                    })
+            }
+            })
     }catch(err){
-        res.status(500).json({message: err.message})
-    }
+            res.status(500).json({message: err.message})
+        }
+    
 })
 
 // creating one
