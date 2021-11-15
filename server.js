@@ -18,6 +18,12 @@ db.once('open', ()=> console.log('connected to db'))
 
 app.use(cors())
 app.use(express.json())
+
+// users login
+const loginRouter = require('./routes/users')
+app.use('/users', loginRouter)
+
+
 app.use(basicAuth({
   users: { 'username' : process.env.PASSWORD }
 }
@@ -39,8 +45,7 @@ app.use('/parentCategories', parentCategoryRouter)
 const pubListRouter = require('./routes/pubList')
 app.use('/pubList', pubListRouter)
 
-const loginRouter = require('./routes/users')
-app.use('/users', loginRouter)
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
