@@ -2,6 +2,18 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 
+const getUser = async (req, res, next) =>{
+    try{
+        user = await User.findById(req.params.id)
+        if(drink == null){
+            return res.status(404).json({message: 'cannot find User Model'})
+        }
+    }catch(err){
+        return res.status(500).json({message: err.message})
+    }
+    res.user = user
+    next()
+}
 
 router.get('/', async (req, res)=>{
     try{
@@ -45,4 +57,29 @@ router.post('/', async (req, res)=>{
     }
 })
 
+// updating one
+router.patch('/:id', getUser, async (req, res)=>{
+      
+    if(req.body.username != null){
+        res.user.username = req.body.username
+    }    
+    if(req.body.password != null){
+        res.user.password = req.body.password
+    }    
+    try {
+        const updatedUser = await res.user.save()
+        res.json(updatedUser)
+    }catch(err){
+        res.status(400).json({message: err.message})
+    }
+})
+// deleting one
+router.delete('/:id', getUser, async (req, res)=>{
+    try {
+        await res.user.remove()
+        res.json({message: 'Deleted User'})
+    }catch(err){
+        res.status(500).json({message: err.message})
+    }
+})
 module.exports = router
