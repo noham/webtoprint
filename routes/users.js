@@ -5,7 +5,7 @@ const User = require('../models/user')
 const getUser = async (req, res, next) =>{
     try{
         user = await User.findById(req.params.id)
-        if(drink == null){
+        if(user == null){
             return res.status(404).json({message: 'cannot find User Model'})
         }
     }catch(err){
