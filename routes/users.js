@@ -47,7 +47,8 @@ router.get('/', async (req, res)=>{
 router.post('/', async (req, res)=>{
     const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        associatedPub: req.body.associatedPub
     })
     try {
         const newUser = await user.save()
@@ -65,6 +66,9 @@ router.patch('/:id', getUser, async (req, res)=>{
     }    
     if(req.body.password != null){
         res.user.password = req.body.password
+    }    
+    if(req.body.associatedPub != null){
+        res.user.associatedPub = req.body.associatedPub
     }    
     try {
         const updatedUser = await res.user.save()

@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    associatedPub: {
+        type: String,
+        required: false
+    },
     dateCreated: {
         type: Date,
         required: true,
