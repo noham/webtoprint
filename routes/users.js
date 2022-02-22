@@ -32,7 +32,7 @@ router.get('/', async (req, res)=>{
                     } else if (!isMatch) {
                         res.json({user: false})
                     } else {
-                        res.json({user: true})
+                        res.json(user)
                     }
                     })
             }
